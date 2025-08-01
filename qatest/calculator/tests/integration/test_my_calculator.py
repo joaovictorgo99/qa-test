@@ -19,13 +19,17 @@ class TestMyCalculator(unittest.TestCase):
         result = my_calculator("/", 4, 2)
         self.assertEqual(result, 2)
 
-    def test_division_by_zero(self):
-        with self.assertRaises(ZeroDivisionError):
-            result = my_calculator("/", 4, 0)
-
     def test_invalid_operation(self):
         result = my_calculator("%", 4, 0)
         self.assertEqual(result, "error: Invalid operation")
+
+    def test_invalid_number(self):
+        with self.assertRaises(TypeError):
+            result = my_calculator("+", None, 0)
+
+    def test_division_by_zero(self):
+        with self.assertRaises(ZeroDivisionError):
+            result = my_calculator("/", 4, 0)
 
 if __name__ == '__main__':
     unittest.main()
