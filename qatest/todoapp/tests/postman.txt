@@ -1,0 +1,67 @@
+How to test with Postman and automate API requests.
+
++ Environment
+    - Create an environment
+    - Set an environment variable for the base URL
+    - Set an environment variable for the task ID
+    - Set a global variable for the authorization token
+
++ Collection
+    - Create a collection
+    - Create requests
+    - Organize requests with folders
+
++ Scripts
+    + Pre-Request
+        - Dynamically configure requests
+        - pre-request-script.js
+
+    + Post-response
+        - Write tests
+        - post-response-script.js
+
++ Runner
+    - Organize and sort requests
+    - Automate requests for testing
+
++ Requests
+    + POST, Login
+        - url: {{baseUrl}}/login
+        - Token not required
+        + Body Example
+            {
+            "username": "admin",
+            "password": "123"
+            }
+
+    + GET, Get Task
+        - url: {{baseUrl}}/tasks/{{taskId}}
+        - Token required
+        - Empty Body
+
+    + GET, Get Tasks
+        - url: {{baseUrl}}/tasks
+        - Token required
+        - Empty Body
+
+    + POST, Create Task
+        - url: {{baseUrl}}/tasks
+        - Token required
+        + Body Example
+            {
+                "title": "my_first_task",
+                "description": "this is my first task"
+            }
+
+    + PUT, Update Task
+        - url: {{baseUrl}}/tasks/{{taskId}}
+        - Token required
+        + Body Example
+            {
+                "status": "completed"
+            }
+
+    + DELETE, Delete Task
+        - url: {{baseUrl}}/tasks/{{taskId}}
+        - Token required
+        - Empty Body
