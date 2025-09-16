@@ -1,5 +1,5 @@
 .venv/
 .idea/
 **/__pycache__/
-cypress-realworld-app/
-realworldapp/cypress/
+qatest/realworldapp/cypress-realworld-app
+qatest/realworldapp/cypress
