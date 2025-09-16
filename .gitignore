@@ -2,4 +2,3 @@
 .idea/
 **/__pycache__/
 qatest/realworldapp/cypress-realworld-app
-qatest/realworldapp/cypress
