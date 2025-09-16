@@ -2,4 +2,4 @@
 .idea/
 **/__pycache__/
 cypress-realworld-app/
-cypress/
+realworldapp/cypress/
