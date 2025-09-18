@@ -1,0 +1,21 @@
+describe('transaction', () => {
+    it('makes transactions', () => {
+        cy.visit('http://localhost:3000/')
+        cy.get('[name="username"]').type("richg")
+        cy.get('[name="password"]').type("1234")
+        cy.get('[data-test="signin-submit"]').click()
+        cy.get('[data-test="nav-top-new-transaction"]').click()
+        cy.get('li').eq(3).contains("Ruthie Prosacco").click()
+        cy.get('[name="amount"]').type("10.00")
+        cy.get('.MuiInputBase-root > [name="description"]').type("10 dollars")
+        cy.get('[data-test="transaction-create-submit-request"]').click()
+        cy.get('[data-test="new-transaction-create-another-transaction"]').click()
+        cy.get('[data-test="user-list-search-input"]').type("ted")
+        cy.wait(1000);  // Wait 1 second to show only found contacts
+        cy.get('li').eq(0).contains("Ted Parisian").click()
+        cy.get('[name="amount"]').type("10.00")
+        cy.get('.MuiInputBase-root > [name="description"]').type("10 dollars")
+        cy.get('[data-test="transaction-create-submit-payment"]').click()
+        cy.get('[data-test="new-transaction-return-to-transactions"]').click()
+    })
+})
